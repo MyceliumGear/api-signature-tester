@@ -30,5 +30,8 @@
     "ignore": [
       "node_modules/**"
     ]
+  },
+  "dependencies": {
+    "crypto-js": "^3.1.5"
   }
 }

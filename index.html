@@ -5,17 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
 
-    <title>api-signature</title>
+    <title>API Request Builder</title>
 
-    <link rel='stylesheet' href="/build/css/main.css">
   </head>
 
   <body>
 
-    <!-- bundle.js builds the views. -->
-    <div id="app"></div>
+      <div id="app">
+          <form name="requestData">
+              Request URL: <input name="requestHost" type="text" placeholder="http://localhost:3000"/>
+              <input name="requestPath" type="text"/ placeholder="/api/gateways"><br />
+              Secret: <input name="secret" type="text" placeholder="2dX..."/> <br />
+              Email: <input name="email" type="text" /> <br />
+              Method:
+              <select name="method">
+                  <option value="GET">GET</option>
+                  <option value="POST">POST</option>
+                  <option value="PATCH">PATCH</option>
+              </select>
+              <br />
+              Body (json): <br />
+              <textarea cols="30" name="body" rows="10" placeholder='{"data": { "attributes": { "name": "Gate Name" } } }'></textarea>
+              <br />
+              <button id="submitBtn">Submit</button>
+          </form>
+          <br />
+          <div>CURL request: (<button id="copyToClipboard">Copy to Clipboard</button>)</div>
+          <textarea id="request" cols="170" rows="3"></textarea>
+      </div>
 
-    <script src="/build/js/bundle.js"></script>
+    <script src="./build/js/bundle.js"></script>
   </body>
 </html>
 

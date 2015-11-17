@@ -3,5 +3,5 @@
  * and require them after `require('babel-core/register')`
  */
 require('babel-core/register')
-
+require('./hex_signature_test')
 // require('./spec/mytest.js')
