@@ -1,15 +1,12 @@
-# API Request Builder
+# API Request with signature authorization
 
 # About
 
-Build string with `curl` request.
-Only for testing purpose.
+Make API request on target server.  
+For authorization using signature strategy.
 
 # Usage
 
-Open `index.html` and fill inputs with your data.
-
-If method is `GET`, `body` not used.
-
-Copy string and paste in terminal.
-
+Server is a simple Express application.  
+To run it: `npm run serve`  
+And open in browser `http://localhost:8800`  
