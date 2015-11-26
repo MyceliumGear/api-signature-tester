@@ -4,37 +4,81 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
-
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/codemirror.css" />
     <title>API Request Builder</title>
-
+    <style>
+     .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black; height: auto;}
+     #result pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+     #result .string { color: green; }
+     #result .number { color: darkorange; }
+     #result .boolean { color: blue; }
+     #result .null { color: magenta; }
+     #result .key { color: red; }
+    </style>
   </head>
 
   <body>
-
-      <div id="app">
-          <form name="requestData">
-              Request URL: <input name="requestHost" type="text" placeholder="http://localhost:3000"/>
-              <input name="requestPath" type="text"/ placeholder="/api/gateways"><br />
-              Secret: <input name="secret" type="text" placeholder="2dX..."/> <br />
-              Email: <input name="email" type="text" /> <br />
-              Method:
-              <select name="method">
+    <div class="container" id="app">
+      <div class="row">
+        <h1>Gear API Tester</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <form name="requestData" action="/request" method="POST" class="form-horizontal">
+            <div class="form-group">
+              <label for="" class="col-md-3 control-label">Request URL</label>
+              <div class="col-md-5">
+                <input name="requestHost" type="text" placeholder="http://localhost:3000" class="form-control"/>
+              </div>
+              <div class="col-md-4">
+                <input name="requestPath" type="text"/ placeholder="/api/gateways" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="">Secret</label>
+              <div class="col-md-9">
+                <input name="secret" type="text" placeholder="2dX..." class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label">Email</label>
+              <div class="col-md-7">
+                <input name="email" type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="">Method</label>
+              <div class="col-md-5">
+                <select name="method" class="control-form">
                   <option value="GET">GET</option>
                   <option value="POST">POST</option>
                   <option value="PATCH">PATCH</option>
-              </select>
-              <br />
-              Body (json): <br />
-              <textarea cols="30" name="body" rows="10" placeholder='{"data": { "attributes": { "name": "Gate Name" } } }'></textarea>
-              <br />
-              <button id="submitBtn">Submit</button>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3 form-label" for="">Body (Json)</label>
+              <div class="col-md-9">
+                <textarea id="jsonEditor" cols="30" name="body" rows="10" placeholder='{"data": { "attributes": { "name": "Gate Name" } } }' class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-offset-3 col-md-3">
+                <button id="submitBtn" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
           </form>
-          <br />
-          <div>CURL request: (<button id="copyToClipboard">Copy to Clipboard</button>)</div>
-          <textarea id="request" cols="170" rows="3"></textarea>
+        </div>
+        <div class="col-md-6">
+          <pre id="result"></pre>
+        </div>
       </div>
-
-    <script src="./build/js/bundle.js"></script>
+    </div>
+    <script src="js/bundle.js"></script>
   </body>
 </html>
 
