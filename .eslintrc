@@ -1,6 +1,13 @@
 {
   "env": {
-    "browser": true
+      "browser": true,
+      "node": true
   },
-  "extends": ["standard", "standard-react"]
+  "extends": ["standard", "standard-react"],
+  "rules": {
+      semi: 0,
+      quotes: 0,
+      indent: 0,
+      one-var: 0
+  }
 }
